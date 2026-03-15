@@ -42,7 +42,9 @@ GET,/getDepartments,User,Fetch user profile/applied courses
 PUT,/updateDepartment,User,Update user information
 DELETE,/deleteDepartment,User,Delete user account
 
-_🛡 Admin Panel_ 2. Admin Routes (/api_url/users/task/admin)
+_🛡 Admin Panel_
+
+2. Admin Routes (/api_url/users/task/admin)
 
 Method,Endpoint,Auth,Description
 POST,/register,Public,Admin registration
@@ -61,7 +63,9 @@ GET,/getDepartments-by-admin,Admin,Get all users in the system
 DELETE,/user/:userId,Admin,Remove a specific user
 GET,/public-admin-id,Public,Fetch admin ID for public reference
 
-_💳 Payments & Enrollment_ 3. Payment & Enrollment (/api_url/users/task/user-payment)
+_💳 Payments & Enrollment_
+
+3. Payment & Enrollment (/api_url/users/task/user-payment)
 
 Method,Endpoint,Auth,Description
 POST,/apply-and-pay,User,Buy a course (Simulated Payment)
@@ -69,7 +73,9 @@ GET,/my-courses,User,Fetch user's purchased courses
 GET,/my-receipts,User,Fetch user's transaction history
 GET,/my-total,User,Get sum of all payments made
 
-_Chat System_ 4. Chat System (/api_url/users/task/chat)
+_Chat System_
+
+4. Chat System (/api_url/users/task/chat)
 
 Method,Endpoint,Auth,Description
 POST,/send,User,User sends message to Admin
