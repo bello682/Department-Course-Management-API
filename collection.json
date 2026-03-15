@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "8d3e2f1a-5b4c-4d6e-9f8a-7b6c5d4e3f2a",
+    "name": "Department & Course API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Routes",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phoneNumber\": \"1234567890\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Verify User OTP",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/verifyUser-otp",
+            "body": { "mode": "raw", "raw": "{\n  \"otp\": \"123456\"\n}" }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Profile (Departments)",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/getDepartments"
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "url": "{{BASE_URL}}/users/task/updateDepartment"
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": "{{BASE_URL}}/users/task/deleteDepartment"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Routes",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/admin/login"
+          }
+        },
+        {
+          "name": "Create Course",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/admin/courses"
+          }
+        },
+        {
+          "name": "Get All Courses",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/admin/courses"
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/admin/getDepartments-by-admin"
+          }
+        },
+        {
+          "name": "Public Admin ID",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/admin/public-admin-id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments & Enrollment",
+      "item": [
+        {
+          "name": "Apply and Pay",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/user-payment/apply-and-pay",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"YOUR_COURSE_ID\",\n  \"methodOfPayment\": \"card\"\n}"
+            }
+          }
+        },
+        {
+          "name": "My Courses",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/user-payment/my-courses"
+          }
+        },
+        {
+          "name": "My Receipts",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/user-payment/my-receipts"
+          }
+        },
+        {
+          "name": "Total Amount Paid",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/user-payment/my-total"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chat System",
+      "item": [
+        {
+          "name": "Send Message (User)",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/chat/send"
+          }
+        },
+        {
+          "name": "Send Message (Admin)",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/users/task/chat/send/admin"
+          }
+        },
+        {
+          "name": "Chat History (User)",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/chat/history/:userId"
+          }
+        },
+        {
+          "name": "Users with Last Message",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/chat/users-with-last-message"
+          }
+        },
+        {
+          "name": "Unread Count (Admin)",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/chat/unread-count"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Public Routes",
+      "item": [
+        {
+          "name": "Fetch All Courses (Public)",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/users/task/public-courses/all-courses"
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    }
+  ],
+  "variable": [
+    { "key": "BASE_URL", "value": "http://localhost:7075/api_url" },
+    { "key": "TOKEN", "value": "your_jwt_here" }
+  ]
+}
